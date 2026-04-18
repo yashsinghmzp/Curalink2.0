@@ -22,7 +22,7 @@ export default function App() {
 
   const fetchSessionList = async () => {
     try {
-      const res = await axios.get('https://curalink2-0.onrender.com/api/sessions/api/sessions');
+      const res = await axios.get('https://curalink2-0.onrender.com/api/sessions');
       setSessionList(res.data);
     } catch (err) {
       console.error("Failed to load history", err);
@@ -44,7 +44,7 @@ export default function App() {
   const loadSession = async (id, disease) => {
     setLoading(true);
     try {
-      const res = await axios.get(`https://curalink2-0.onrender.com/api/sessions/api/sessions/${id}`);
+     const res = await axios.get(`https://curalink2-0.onrender.com/api/sessions/${id}`);
       setSessionId(id);
       setDiseaseContext(disease);
       setMessages(res.data.messages);
@@ -60,7 +60,7 @@ export default function App() {
   const deleteSession = async (e, id) => {
     e.stopPropagation(); // Yeh isliye taaki delete dabane par chat load na ho jaye
     try {
-      await axios.delete(`https://curalink2-0.onrender.com/api/sessions/api/sessions/${id}`);
+     await axios.delete(`https://curalink2-0.onrender.com/api/sessions/${id}`);
       
       // UI se turant hata do
       setSessionList(prev => prev.filter(s => s.sessionId !== id));
@@ -86,7 +86,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const response = await axios.post('https://curalink2-0.onrender.com/api/sessions/api/research', {
+      const response = await axios.post('https://curalink2-0.onrender.com/api/research', {
         sessionId: sessionId,
         disease: isFirstMessage ? input : "", 
         userQuery: input
