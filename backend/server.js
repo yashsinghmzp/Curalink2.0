@@ -8,7 +8,7 @@ const { fetchPublications } = require('./services/openAlex');
 const { fetchPubMed } = require('./services/pubmed'); 
 const { generateSummary } = require('./services/llmServices');
 const { rankAndFilterData } = require('./services/ranking'); 
-const ChatHistory = require('./models/ChatHistory'); // NAYA
+const ChatHistory = require('./models/chatHistory'); // NAYA
 
 const app = express();
 const PORT = process.env.PORT || 5000;
